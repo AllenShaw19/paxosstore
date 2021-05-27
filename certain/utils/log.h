@@ -1,5 +1,6 @@
 #pragma once
 
+#include <cassert>
 #include "include/certain/log.h"
 #include "include/certain/monitor.h"
 #include "utils/header.h"
@@ -56,7 +57,6 @@ class Log : public Singleton<Log> {
       static const int buffer_len = 256;                                    \
       static const auto file_len = strlen(__FILE__) + 1;                    \
       static const auto func_len = strlen(__func__);                        \
-      static_assert(file_len + func_len < buffer_len, "buffer too short");  \
       char buffer[buffer_len] = __FILE__ ":";                               \
       memcpy(buffer + file_len, __func__, func_len);                        \
       buffer[file_len + func_len] = '\0';                                   \

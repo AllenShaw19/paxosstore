@@ -8,7 +8,7 @@ int TinyRpc::SendMessage(TcpSocket* socket,
                          const ::google::protobuf::Message& msg, int msg_id,
                          int result) {
   MsgHeader header(0);
-  int msg_len = msg.ByteSize();
+  int msg_len = msg.ByteSizeLong();
 
   header.magic_num = kMagicNum;
   header.msg_id = (uint16_t)msg_id;

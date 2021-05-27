@@ -22,7 +22,7 @@ GPERFTOOLS_PATH = ./third/gperftools
 
 GXX = g++
 
-GXXFLAGS = -O2 -g2 -DCERTAIN_PROFILE \
+GXXFLAGS = -faligned-new -O2 -g2 -DCERTAIN_PROFILE \
            -Wall -Werror -Wno-format -std=c++11 -I./ -I./include/ \
            -I$(PROTOBUF_PATH) -I$(GTEST_PATH)/include -I$(GLOG_PATH)/src -I$(GFLAGS_PATH)/include \
            -I$(LIBCO_PATH) -I$(LEVELDB_PATH)/include -I$(OSSATTRAPI_PATH) -I$(GPERFTOOLS_PATH)/src

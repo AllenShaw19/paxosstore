@@ -64,7 +64,7 @@ bool PaxosCmd::SerializeToBuffer(char* buffer, uint32_t len,
   paxos_msg.set_max_chosen_entry(max_chosen_entry_);
 
   bool ok = true;
-  real_len = paxos_msg.ByteSize();
+  real_len = paxos_msg.ByteSizeLong();
   if (uint32_t(real_len) > len) {
     CERTAIN_LOG_FATAL("SerializeToArray real_len %d len %u", real_len, len);
     ok = false;
@@ -95,7 +95,7 @@ uint32_t PaxosCmd::SerializedByteSize() {
   paxos_msg.set_check_empty(check_empty_);
   paxos_msg.set_max_chosen_entry(max_chosen_entry_);
 
-  uint64_t byte_size = paxos_msg.ByteSize();
+  uint64_t byte_size = paxos_msg.ByteSizeLong();
 
   paxos_msg.mutable_local_entry_record()->Swap(&local_entry_record_);
   paxos_msg.mutable_peer_entry_record()->Swap(&peer_entry_record_);
@@ -177,7 +177,7 @@ bool RangeCatchupCmd::SerializeToBuffer(char* buffer, uint32_t len,
   rangecatchup_msg.set_end_entry(end_entry_);
 
   bool ok = true;
-  real_len = rangecatchup_msg.ByteSize();
+  real_len = rangecatchup_msg.ByteSizeLong();
   if (uint32_t(real_len) > len) {
     CERTAIN_LOG_FATAL("SerializeToArray real_len %d len %u", real_len, len);
     ok = false;
@@ -202,7 +202,7 @@ uint32_t RangeCatchupCmd::SerializedByteSize() {
   rangecatchup_msg.set_begin_entry(begin_entry_);
   rangecatchup_msg.set_end_entry(end_entry_);
 
-  return rangecatchup_msg.ByteSize();
+  return rangecatchup_msg.ByteSizeLong();
 }
 
 bool RangeCatchupCmd::SwitchToLocalView(uint32_t local_acceptor_id) {

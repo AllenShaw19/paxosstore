@@ -340,7 +340,7 @@ bool EntryStateMachine::IsMajorityEmpty() const {
 size_t EntryStateMachine::CalcSize() const {
   uint32_t size = sizeof(*this);
   for (uint32_t i = 0; i < acceptor_num_; ++i) {
-    size += entry_records_[i].ByteSize();
+    size += entry_records_[i].ByteSizeLong();
   }
   return size;
 }

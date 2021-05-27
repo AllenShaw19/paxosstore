@@ -18,7 +18,9 @@ if [ $1 = "libcertain.a" ] ; then
     fi
     make -j 4 lib;
 elif [ $1 = "example" ] ; then
-    sh third/autobuild.sh; make -j 4 example;
+    sh third/autobuild.sh; 
+    make -j 4 server;
+    make -j 4 client;
 else
     echo "Usage: build.sh [libcertain.a|example]"
     exit
