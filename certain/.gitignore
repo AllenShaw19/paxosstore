@@ -3,3 +3,7 @@
 /test_log.o/
 /test_plog.o/
 /third/
+*.o
+*.a
+client
+server
